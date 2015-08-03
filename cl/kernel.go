@@ -104,7 +104,7 @@ func (k *Kernel) SetArgLocal(index int, size int) error {
 }
 
 func (k *Kernel) SetArgUnsafe(index, argSize int, arg unsafe.Pointer) error {
-	//fmt.Println("FUNKY: ", index, argSize)
+	fmt.Println("FUNKY: ", index, argSize)
 	return toError(C.clSetKernelArg(k.clKernel, C.cl_uint(index), C.size_t(argSize), arg))
 }
 

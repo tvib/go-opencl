@@ -13,6 +13,7 @@ import (
 	"reflect"
 	"runtime"
 	"strings"
+	"time"
 	"unsafe"
 )
 
@@ -140,6 +141,7 @@ var errorMap = map[C.cl_int]error{
 }
 
 func toError(code C.cl_int) error {
+	fmt.Println(time.Now().String(), "FUNKY :", code)
 	if err, ok := errorMap[code]; ok {
 		return err
 	}
